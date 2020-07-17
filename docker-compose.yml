@@ -1,0 +1,20 @@
+version: "3"
+services:
+  mimtproxy:
+    image: mitmproxy/mitmproxy
+    volumes:
+      - ./.mitmproxy:/home/mitmproxy/.mitmproxy
+    ports:
+    - 8080:8080
+    - 8081:8081
+
+#    command:
+#      - mitmproxy
+
+#    command:
+#      - mitmdump
+
+    command:
+      - mitmweb
+      - --web-host
+      - 0.0.0.0
