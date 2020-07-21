@@ -1,0 +1,35 @@
+version: "3"
+services:
+  inlets-server:
+    image: inlets/inlets:2.7.3
+    ports:
+      - 80:9090
+      - 8000:8000
+    command:
+      - server
+      - --port
+      - "9090"
+      - --control-port
+      - "8000"
+      - --token
+      - testtoken
+
+  inlets-client:
+    image: inlets/inlets:2.7.3 
+    command:
+      - client
+      - --remote
+      - ws://inlets-server:8000    # ws地址，线上可使用caddy或者nginx代理
+      - --token
+      - testtoken
+      - '--upstream=wxy.dev=http://test-server:12345'
+
+  test-server:
+    image: centos:7
+    ports:
+      - 12345:12345
+    command:
+      - python
+      - -m
+      - SimpleHTTPServer
+      - "12345"
