@@ -1,0 +1,73 @@
+version: "3"
+services:
+  redis-7000:
+    image: redis:6.0.6
+    network_mode: "host"
+#    ports:
+#      - 7000:7000
+    volumes:
+      - ./redis_7000.conf:/etc/redis.conf
+      - ./.data/redis_7000:/data
+    command:
+      - redis-server
+      - /etc/redis.conf
+  
+  redis-7001:
+    image: redis:6.0.6
+    network_mode: "host"
+ #   ports:
+ #     - 7001:7001
+    volumes:
+      - ./redis_7001.conf:/etc/redis.conf
+      - ./.data/redis_7001:/data
+    command:
+      - redis-server
+      - /etc/redis.conf 
+
+  redis-7002:
+    image: redis:6.0.6
+    network_mode: "host"
+ #   ports:
+ #     - 7002:7002
+    volumes:
+      - ./redis_7002.conf:/etc/redis.conf
+      - ./.data/redis_7002:/data
+    command:
+      - redis-server
+      - /etc/redis.conf
+
+  redis-7003:
+    image: redis:6.0.6
+    network_mode: "host"
+ #   ports:
+ #     - 7003:7003
+    volumes:
+      - ./redis_7003.conf:/etc/redis.conf
+      - ./.data/redis_7003:/data
+    command:
+      - redis-server
+      - /etc/redis.conf
+
+  redis-7004:
+    image: redis:6.0.6
+    network_mode: "host"
+ #   ports:
+ #     - 7004:7004
+    volumes:
+      - ./redis_7004.conf:/etc/redis.conf
+      - ./.data/redis_7004:/data
+    command:
+      - redis-server
+      - /etc/redis.conf
+
+  redis-7005:
+    image: redis:6.0.6
+    network_mode: "host"
+ #   ports:
+ #     - 7005:7005
+    volumes:
+      - ./redis_7005.conf:/etc/redis.conf
+      - ./.data/redis_7005:/data
+    command:
+      - redis-server
+      - /etc/redis.conf   
