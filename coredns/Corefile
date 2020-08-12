@@ -1,0 +1,9 @@
+. {
+    hosts {
+       fallthrough   ## 如果 hosts 中找不到，则进入下一个 plugin 继续。缺少这一个指令，后面的 plugins 配置就无意义了；
+    }
+
+    forward . 223.5.5.5
+    log
+    errors
+}

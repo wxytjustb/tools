@@ -1,0 +1,16 @@
+version: '3'
+services:
+  coredns:
+    image: 'coredns/coredns:1.7.0'
+    restart:
+      always
+    ports:
+    - 53:53/udp
+    - 53:53/tcp
+    extra_hosts:
+    - 'master1:10.10.100.75'
+    volumes:
+    - ./Corefile:/etc/Corefile
+    command:
+    - "-conf"
+    - "/etc/Corefile"
