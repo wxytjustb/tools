@@ -4,11 +4,18 @@ services:
     image: docker.elastic.co/beats/filebeat:7.8.1
     volumes:
       - ./filebeat.docker.yml:/usr/share/filebeat/filebeat.yml:ro
-      - /var/lib/docker/containers:/var/lib/docker/containers:ro
-      - /var/run/docker.sock:/var/run/docker.sock:ro
+      # macOS里会报错，linux环境可以使用
+      #- /var/lib/docker/containers:/var/lib/docker/containers:ro
+      #- /var/run/docker.sock:/var/run/docker.sock:ro
     command:
       - filebeat
       - -e
       - -strict.perms=false
       - -E 
       - output.elasticsearch.hosts=["elasticsearch:9200"]
+    networks:
+      - app_net
+
+networks:
+  app_net:
+    external: true
