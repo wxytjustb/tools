@@ -1,0 +1,16 @@
+version: "3"
+services: 
+  elaticseach:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.8.1
+    environment:
+      - discovery.type=single-node
+    ports:
+      - 9200:9200
+      - 9300:9300
+    
+    networks:
+      - app_net
+
+networks:
+  app_net:
+    external: true
