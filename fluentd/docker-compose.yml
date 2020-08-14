@@ -1,0 +1,19 @@
+version: "3"
+services:
+
+#  fluentd1:
+#    image: fluent/fluentd:v1.11.2-debian-1.0
+
+
+#  fluentd2:
+#    image: fluent/fluentd:v1.11.2-debian-1.0
+
+
+  worker:
+    image: centos:7
+    volumes:
+      - ./.data:/data
+      - ./worker.sh:/worker.sh
+    command:
+      - ./worker.sh
+      - "hi"
