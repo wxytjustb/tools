@@ -1,0 +1,10 @@
+version: "3"
+services:
+  micro:
+    container_name: micro-service
+    image: micro/micro
+    volumes:
+      - ./.data:/data
+    command:
+      - server
+ 

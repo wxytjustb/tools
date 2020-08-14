@@ -1,11 +1,9 @@
 # tools
-docker部署的工具集
-
-方便测试使用
+基于docker-compose的工具集，快速入门和测试某个组件
 
 
 
 # 使用说明
 
-所有的容器没有单独暴露接口，容器与容器之间可以直接使用external network进行访问.
+容器如果没有单独暴露接口，相互可以直接使用external network进行服务访问.
 docker network create app_net

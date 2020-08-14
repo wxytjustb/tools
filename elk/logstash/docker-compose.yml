@@ -1,0 +1,15 @@
+version: "3"
+services:
+  logstash:
+    image: docker.elastic.co/logstash/logstash:7.8.1
+    volumes:
+      - ./pipeline/:/usr/share/logstash/pipeline/
+      - ./config/:/usr/share/logstash/config/
+    ports:
+      - 5044:5044
+    networks:
+      - app_net
+
+networks:
+  app_net:
+    external: true
