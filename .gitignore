@@ -3,3 +3,4 @@ discuzq/certs
 discuzq/discuz
 discuzq/mysql-data
 .data
+.DS_Store
